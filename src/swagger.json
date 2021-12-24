@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Desafio Introduction Solid Documentaion",
+        "description": "This is an API Rent",
+        "version": "1.0.0",
+        "contact": {
+            "email": "igorferreira@gmail.com"
+        }
+    },
+    "paths": {
+        "/users": {
+           "post": {
+               "tags":["Users"],
+              "summary": "Create a user",
+              "description": "Create a new user",
+              "requestBody": {
+                  "content": {
+                      "aplication/json": {
+                          "schema": {
+                              "type": "object",
+                              "properties": {
+                                  "name": {
+                                      "type": "string"
+                                  },
+                                  "email": {
+                                      "type": "string"
+                                  }
+                              },
+                              "example": {
+                                "name":"Write your name" ,
+                                "email": "Write your email"
+                            }
+                              
+                          }
+                      }
+                  }
+              },
+              "responses": {
+                  "201": {
+                     "description": "Created" 
+                  },
+                  "500": {
+                     "description": "User already exists." 
+                  }
+              } 
+           },
+           "get": {
+               "tags":["User"],
+               "summary": "List all users",
+               "description": "List all users",
+               "responses": {
+                   "200": {
+                       "description": "success",
+                       "content": {
+                           "aplication/json": {
+                               "schema": {
+                                   "type": "array",
+                                   "items": {
+                                       "type": "object",
+                                       "properties": {
+                                           "name": {
+                                               "type": "string"
+                                           },
+                                           "email": {
+                                               "type": "string"
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+           
+        }
+    }
+}
